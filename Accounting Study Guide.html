@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managerial Accounting Interactive Study Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .chapter {
+            margin-bottom: 30px;
+        }
+        .chapter h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            color: #3498db;
+        }
+        .flashcard {
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .flashcard-front, .flashcard-back {
+            padding: 15px;
+        }
+        .flashcard-front {
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .flashcard-back {
+            background-color: #e9f7fe;
+            display: none;
+        }
+        .quiz-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .quiz-options {
+            margin-left: 20px;
+        }
+        .quiz-options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .quiz-answer {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e9f7fe;
+            border-radius: 5px;
+            display: none;
+        }
+        .show-answer {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .show-answer:hover {
+            background-color: #2980b9;
+        }
+        .practice-problem {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .solution {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e9f7fe;
+            border-radius: 5px;
+            display: none;
+        }
+        .formula {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            font-family: "Courier New", monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Managerial Accounting Interactive Study Guide</h1>
+            <p>Chapters 1-3: Managerial Accounting, Cost Volume Profit Analysis, and Decision Making</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a onclick="openTab(event, 'content')">Chapter Content</a></li>
+            <li><a onclick="openTab(event, 'flashcards')">Flashcards</a></li>
+            <li><a onclick="openTab(event, 'quizzes')">Practice Quizzes</a></li>
+            <li><a onclick="openTab(event, 'problems')">Practice Problems</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+        
+        <div id="content" class="tab-content active">
+            <div class="chapter">
+                <h2>Chapter 1: Managerial Accounting Basics</h2>
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Understand the difference between financial and managerial accounting</li>
+                        <li>Identify the primary users of managerial accounting information</li>
+                        <li>Recognize the key characteristics of managerial accounting</li>
+                        <li>Understand cost behavior patterns</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Concepts</h3>
+                    <p>Managerial accounting provides information for internal decision-making. Unlike financial accounting, which follows strict guidelines and is primarily for external users, managerial accounting is flexible and designed for internal management use.</p>
+                    
+                    <h4>Financial vs. Managerial Accounting</h4>
+                    <table>
+                        <tr>
+                            <th>Financial Accounting</th>
+                            <th>Managerial Accounting</th>
+                        </tr>
+                        <tr>
+                            <td>External users (investors, creditors)</td>
+                            <td>Internal users (managers, executives)</td>
+                        </tr>
+                        <tr>
+                            <td>Historical focus</td>
+                            <td>Future-oriented</td>
+                        </tr>
+                        <tr>
+                            <td>Follows GAAP</td>
+                            <td>No mandatory rules</td>
+                        </tr>
+                        <tr>
+                            <td>Whole organization</td>
+                            <td>Segments or departments</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>Cost Classification</h4>
+                    <p>Costs can be classified in several ways:</p>
+                    <ul>
+                        <li><strong>Variable costs</strong>: Change in proportion to activity level (e.g., materials)</li>
+                        <li><strong>Fixed costs</strong>: Remain constant regardless of activity level (e.g., rent)</li>
+                        <li><strong>Mixed costs</strong>: Contain both fixed and variable components</li>
+                        <li><strong>Direct costs</strong>: Can be traced to a specific cost object</li>
+                        <li><strong>Indirect costs</strong>: Cannot be easily traced to a specific cost object</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="chapter">
+                <h2>Chapter 2: Cost Volume Profit Analysis</h2>
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Understand the components of CVP analysis</li>
+                        <li>Calculate contribution margin and contribution margin ratio</li>
+                        <li>Determine breakeven point in units and dollars</li>
+                        <li>Calculate target profit</li>
+                        <li>Understand margin of safety</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Concepts</h3>
+                    <p>Cost-Volume-Profit (CVP) analysis examines the relationship between costs, volume, and profit. It helps managers understand how changes in volume affect costs and profits.</p>
+                    
+                    <h4>Components of CVP Analysis</h4>
+                    <ul>
+                        <li><strong>Sales price per unit</strong></li>
+                        <li><strong>Variable costs per unit</strong></li>
+                        <li><strong>Total fixed costs</strong></li>
+                        <li><strong>Sales volume</strong></li>
+                    </ul>
+                    
+                    <h4>Key Formulas</h4>
+                    <div class="formula">
+                        Contribution Margin (CM) = Sales Price - Variable Cost per Unit
+                    </div>
+                    <div class="formula">
+                        Contribution Margin Ratio = Contribution Margin ÷ Sales Price
+                    </div>
+                    <div class="formula">
+                        Breakeven Point (units) = Fixed Costs ÷ Contribution Margin
+                    </div>
+                    <div class="formula">
+                        Breakeven Point (dollars) = Fixed Costs ÷ Contribution Margin Ratio
+                    </div>
+                    <div class="formula">
+                        Target Profit (units) = (Fixed Costs + Target Profit) ÷ Contribution Margin
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chapter">
+                <h2>Chapter 3: Decision Making</h2>
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Understand the concept of relevant costs and benefits</li>
+                        <li>Apply decision-making techniques to various business scenarios</li>
+                        <li>Analyze special order decisions</li>
+                        <li>Evaluate make-or-buy decisions</li>
+                        <li>Assess decisions with capacity constraints</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Concepts</h3>
+                    <p>Decision making in managerial accounting focuses on identifying and analyzing relevant costs and benefits for specific decisions.</p>
+                    
+                    <h4>Relevant Costs and Benefits</h4>
+                    <ul>
+                        <li><strong>Relevant costs</strong>: Future costs that differ among alternatives</li>
+                        <li><strong>Irrelevant costs</strong>: Costs that do not differ among alternatives (sunk costs)</li>
+                    </ul>
+                    
+                    <h4>Common Decision Scenarios</h4>
+                    <ul>
+                        <li><strong>Special order decisions</strong>: Whether to accept a one-time order at a special price</li>
+                        <li><strong>Make-or-buy decisions</strong>: Whether to produce a component internally or purchase it from an outside supplier</li>
+                        <li><strong>Keep-or-drop decisions</strong>: Whether to continue or discontinue a product line or segment</li>
+                        <li><strong>Constrained resource decisions</strong>: How to allocate limited resources to maximize profit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="flashcards" class="tab-content">
+            <h2>Flashcards</h2>
+            <p>Click on a flashcard to reveal the answer.</p>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Managerial Accounting</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>The branch of accounting that provides internal reports to help managers make decisions within an organization.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Variable Costs</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>Costs that change in proportion to the level of activity or production. Examples include direct materials and sales commissions.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Fixed Costs</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>Costs that remain constant regardless of the level of activity or production. Examples include rent, insurance, and salaries.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Contribution Margin</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>The difference between sales price per unit and variable cost per unit. It represents the amount each unit contributes to covering fixed costs and generating profit.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Contribution Margin Ratio</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>Contribution margin divided by sales price, expressed as a percentage. It shows the percentage of each sales dollar that contributes to covering fixed costs and generating profit.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Breakeven Point</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>The level of sales at which total revenue equals total costs, resulting in zero profit or loss.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Relevant Costs</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>Future costs that differ among alternative courses of action. These are the only costs that matter for decision-making purposes.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Sunk Costs</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>Costs that have already been incurred and cannot be changed by any decision made now or in the future. Sunk costs are irrelevant for decision-making.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Opportunity Cost</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>The potential benefit that is given up when one alternative is selected over another. It represents the cost of the next best alternative.</p>
+                </div>
+            </div>
+            
+            <div class="flashcard">
+                <div class="flashcard-front" onclick="toggleFlashcard(this)">
+                    <h3>Margin of Safety</h3>
+                </div>
+                <div class="flashcard-back">
+                    <p>The excess of actual or budgeted sales over the breakeven sales volume. It indicates how much sales can decrease before the company incurs a loss.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="quizzes" class="tab-content">
+            <h2>Practice Quizzes</h2>
+            
+            <div class="quiz-question">
+                <h3>Question 1</h3>
+                <p>Which of the following is NOT a characteristic of managerial accounting?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1" value="a"> a) Focus on segments of the organization</label>
+                    <label><input type="radio" name="q1" value="b"> b) Emphasis on relevance and flexibility</label>
+                    <label><input type="radio" name="q1" value="c"> c) Strict adherence to GAAP</label>
+                    <label><input type="radio" name="q1" value="d"> d) Forward-looking orientation</label>
+                </div>
+                <button class="show-answer" onclick="showAnswer(this)">Show Answer</button>
+                <div class="quiz-answer">
+                    <p><strong>Correct Answer: c) Strict adherence to GAAP</strong></p>
+                    <p>Explanation: Managerial accounting is not bound by GAAP (Generally Accepted Accounting Principles). Unlike financial accounting, which must follow GAAP for external reporting, managerial accounting emphasizes relevance and flexibility to meet internal decision-making needs.</p>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Question 2</h3>
+                <p>A company sells a product for $80 per unit. The variable cost per unit is $50, and total fixed costs are $90,000. What is the breakeven point in units?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2" value="a"> a) 1,800 units</label>
+                    <label><input type="radio" name="q2" value="b"> b) 3,000 units</label>
+                    <label><input type="radio" name="q2" value="c"> c) 1,125 units</label>
+                    <label><input type="radio" name="q2" value="d"> d) 1,500 units</label>
+                </div>
+                <button class="show-answer" onclick="showAnswer(this)">Show Answer</button>
+                <div class="quiz-answer">
+                    <p><strong>Correct Answer: b) 3,000 units</strong></p>
+                    <p>Explanation: 
+                    <br>Contribution Margin = Sales Price - Variable Cost = $80 - $50 = $30 per unit
+                    <br>Breakeven Point (units) = Fixed Costs ÷ Contribution Margin = $90,000 ÷ $30 = 3,000 units</p>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Question 3</h3>
+                <p>Which of the following costs would be considered relevant in a decision to replace an old machine with a new one?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3" value="a"> a) The original cost of the old machine</label>
+                    <label><input type="radio" name="q3" value="b"> b) The accumulated depreciation on the old machine</label>
+                    <label><input type="radio" name="q3" value="c"> c) The expected maintenance costs of the new machine</label>
+                    <label><input type="radio" name="q3" value="d"> b) The depreciation already recorded on the old machine</label>
+                </div>
+                <button class="show-answer" onclick="showAnswer(this)">Show Answer</button>
+                <div class="quiz-answer">
+                    <p><strong>Correct Answer: c) The expected maintenance costs of the new machine</strong></p>
+                    <p>Explanation: Relevant costs are future costs that differ among alternatives. The original cost of the old machine and its accumulated depreciation are sunk costs (already incurred) and therefore irrelevant. The expected maintenance costs of the new machine are future costs that will differ between the alternatives of keeping the old machine or buying a new one.</p>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Question 4</h3>
+                <p>A company has a contribution margin ratio of 40%. If fixed costs are $200,000, what is the breakeven point in sales dollars?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q4" value="a"> a) $80,000</label>
+                    <label><input type="radio" name="q4" value="b"> b) $500,000</label>
+                    <label><input type="radio" name="q4" value="c"> c) $200,000</label>
+                    <label><input type="radio" name="q4" value="d"> d) $800,000</label>
+                </div>
+                <button class="show-answer" onclick="showAnswer(this)">Show Answer</button>
+                <div class="quiz-answer">
+                    <p><strong>Correct Answer: b) $500,000</strong></p>
+                    <p>Explanation: 
+                    <br>Breakeven Point (dollars) = Fixed Costs ÷ Contribution Margin Ratio
+                    <br>= $200,000 ÷ 0.40 = $500,000</p>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Question 5</h3>
+                <p>In a make-or-buy decision, which of the following would be considered an opportunity cost?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q5" value="a"> a) The direct materials cost to make the component</label>
+                    <label><input type="radio" name="q5" value="b"> b) The revenue that could be earned by using the manufacturing facilities for other products</label>
+                    <label><input type="radio" name="q5" value="c"> c) The purchase price quoted by the supplier</label>
+                    <label><input type="radio" name="q5" value="d"> d) The direct labor cost to make the component</label>
+                </div>
+                <button class="show-answer" onclick="showAnswer(this)">Show Answer</button>
+                <div class="quiz-answer">
+                    <p><strong>Correct Answer: b) The revenue that could be earned by using the manufacturing facilities for other products</strong></p>
+                    <p>Explanation: Opportunity cost represents the potential benefit that is given up when one alternative is selected over another. In this case, if the company decides to make the component, it gives up the opportunity to use its manufacturing facilities for other products that could generate revenue.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="problems" class="tab-content">
+            <h2>Practice Problems</h2>
+            
+            <div class="practice-problem">
+                <h3>Problem 1: Breakeven Analysis</h3>
+                <p>Sunshine Company manufactures sunglasses. Each pair sells for $50 and has variable costs of $30. The company's fixed costs are $200,000 per year.</p>
+                <p><strong>Required:</strong></p>
+                <ol>
+                    <li>Calculate the contribution margin per unit.</li>
+                    <li>Calculate the contribution margin ratio.</li>
+                    <li>Calculate the breakeven point in units.</li>
+                    <li>Calculate the breakeven point in sales dollars.</li>
+                    <li>If the company wants to earn a profit of $100,000, how many units must it sell?</li>
+                </ol>
+                <button class="show-answer" onclick="showSolution(this)">Show Solution</button>
+                <div class="solution">
+                    <ol>
+                        <li>Contribution margin per unit = Sales price - Variable cost = $50 - $30 = $20 per unit</li>
+                        <li>Contribution margin ratio = Contribution margin ÷ Sales price = $20 ÷ $50 = 0.40 or 40%</li>
+                        <li>Breakeven point in units = Fixed costs ÷ Contribution margin = $200,000 ÷ $20 = 10,000 units</li>
+                        <li>Breakeven point in sales dollars = Fixed costs ÷ Contribution margin ratio = $200,000 ÷ 0.40 = $500,000</li>
+                        <li>Target profit in units = (Fixed costs + Target profit) ÷ Contribution margin = ($200,000 + $100,000) ÷ $20 = 15,000 units</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="practice-problem">
+                <h3>Problem 2: Special Order Decision</h3>
+                <p>Oceanview Resort has 30 rooms that are currently unoccupied for the next week. A tour company has offered to pay $60 per room per night for all 30 rooms for the entire week (7 nights). The variable cost per occupied room is $25 per night for cleaning and amenities. The resort's fixed costs are $10,000 per week regardless of occupancy.</p>
+                <p><strong>Required:</strong></p>
+                <ol>
+                    <li>Should Oceanview Resort accept the special order? Show your calculations.</li>
+                    <li>What is the minimum price per room per night that the resort should accept for this special order?</li>
+                </ol>
+                <button class="show-answer" onclick="showSolution(this)">Show Solution</button>
+                <div class="solution">
+                    <ol>
+                        <li>
+                            <p>Revenue from special order = 30 rooms × 7 nights × $60 = $12,600</p>
+                            <p>Variable costs = 30 rooms × 7 nights × $25 = $5,250</p>
+                            <p>Contribution margin = $12,600 - $5,250 = $7,350</p>
+                            <p>Since the contribution margin is positive ($7,350), Oceanview Resort should accept the special order. The fixed costs of $10,000 are irrelevant to this decision because they will be incurred regardless of whether the resort accepts the special order.</p>
+                        </li>
+                        <li>
+                            <p>The minimum price per room per night should cover the variable cost per room. Therefore, the minimum price = $25 per room per night.</p>
+                            <p>Any price above $25 will contribute to covering fixed costs and generating profit.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="practice-problem">
+                <h3>Problem 3: Make-or-Buy Decision</h3>
+                <p>Techno Manufacturing currently produces a component for its main product. The annual production is 5,000 units with the following costs:</p>
+                <ul>
+                    <li>Direct materials: $40 per unit</li>
+                    <li>Direct labor: $30 per unit</li>
+                    <li>Variable overhead: $15 per unit</li>
+                    <li>Fixed overhead allocated: $25 per unit (total fixed overhead: $125,000)</li>
+                </ul>
+                <p>A supplier has offered to sell the component to Techno for $95 per unit. If Techno buys the component, it can use the freed-up capacity to produce a new product that would contribute $60,000 in additional profit. 30% of the fixed overhead costs would be avoided if the component is purchased.</p>
+                <p><strong>Required:</strong></p>
+                <ol>
+                    <li>Should Techno make or buy the component? Show your calculations.</li>
+                </ol>
+                <button class="show-answer" onclick="showSolution(this)">Show Solution</button>
+                <div class="solution">
+                    <p><strong>Analysis:</strong></p>
+                    <p>First, identify the relevant costs for the make-or-buy decision:</p>
+                    
+                    <p><strong>Relevant costs of making the component:</strong></p>
+                    <ul>
+                        <li>Direct materials: $40 × 5,000 = $200,000</li>
+                        <li>Direct labor: $30 × 5,000 = $150,000</li>
+                        <li>Variable overhead: $15 × 5,000 = $75,000</li>
+                        <li>Avoidable fixed overhead: 30% × $125,000 = $37,500</li>
+                        <li>Total relevant cost of making: $200,000 + $150,000 + $75,000 + $37,500 = $462,500</li>
+                    </ul>
+                    
+                    <p><strong>Relevant costs of buying the component:</strong></p>
+                    <ul>
+                        <li>Purchase price: $95 × 5,000 = $475,000</li>
+                        <li>Less: Opportunity cost (additional profit from new product) = ($60,000)</li>
+                        <li>Total relevant cost of buying: $475,000 - $60,000 = $415,000</li>
+                    </ul>
+                    
+                    <p><strong>Decision:</strong></p>
+                    <p>Since the relevant cost of buying ($415,000) is less than the relevant cost of making ($462,500), Techno should buy the component from the supplier. This decision would save the company $47,500 ($462,500 - $415,000).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Function to open tab content
+        function openTab(evt, tabName) {
+            var i, tabContent, tabLinks;
+            
+            // Hide all tab content
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            
+            // Show the selected tab content
+            document.getElementById(tabName).style.display = "block";
+            
+            // Update progress
+            updateProgress();
+        }
+        
+        // Function to toggle flashcard
+        function toggleFlashcard(element) {
+            var back = element.nextElementSibling;
+            if (back.style.display === "block") {
+                back.style.display = "none";
+            } else {
+                back.style.display = "block";
+                updateProgress();
+            }
+        }
+        
+        // Function to show quiz answer
+        function showAnswer(button) {
+            var answer = button.nextElementSibling;
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                button.textContent = "Show Answer";
+            } else {
+                answer.style.display = "block";
+                button.textContent = "Hide Answer";
+                updateProgress();
+            }
+        }
+        
+        // Function to show problem solution
+        function showSolution(button) {
+            var solution = button.nextElementSibling;
+            if (solution.style.display === "block") {
+                solution.style.display = "none";
+                button.textContent = "Show Solution";
+            } else {
+                solution.style.display = "block";
+                button.textContent = "Hide Solution";
+                updateProgress();
+            }
+        }
+        
+        // Function to update progress bar
+        function updateProgress() {
+            // Count total interactive elements
+            var totalElements = document.getElementsByClassName("flashcard").length + 
+                               document.getElementsByClassName("quiz-question").length + 
+                               document.getElementsByClassName("practice-problem").length;
+            
+            // Count viewed elements
+            var viewedFlashcards = 0;
+            var flashcardBacks = document.getElementsByClassName("flashcard-back");
+            for (var i = 0; i < flashcardBacks.length; i++) {
+                if (flashcardBacks[i].style.display === "block") {
+                    viewedFlashcards++;
+                }
+            }
+            
+            var viewedAnswers = 0;
+            var quizAnswers = document.getElementsByClassName("quiz-answer");
+            for (var i = 0; i < quizAnswers.length; i++) {
+                if (quizAnswers[i].style.display === "block") {
+                    viewedAnswers++;
+                }
+            }
+            
+            var viewedSolutions = 0;
+            var problemSolutions = document.getElementsByClassName("solution");
+            for (var i = 0; i < problemSolutions.length; i++) {
+                if (problemSolutions[i].style.display === "block") {
+                    viewedSolutions++;
+                }
+            }
+            
+            var totalViewed = viewedFlashcards + viewedAnswers + viewedSolutions;
+            var progressPercentage = Math.round((totalViewed / totalElements) * 100);
+            
+            // Update progress bar
+            var progressBar = document.getElementById("progressBar");
+            progressBar.style.width = progressPercentage + "%";
+            progressBar.textContent = progressPercentage + "%";
+        }
+        
+        // Initialize the first tab as active
+        document.getElementById("content").style.display = "block";
+    </script>
+</body>
+</html>
